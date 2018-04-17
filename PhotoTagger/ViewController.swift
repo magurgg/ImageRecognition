@@ -1,24 +1,10 @@
-/*
- * Copyright (c) 2016 Razeware LLC
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
+//
+//  ViewController.swift
+//  PhotoTagger
+//
+//  Created by Marco Antonio Gutierrez López on 4/16/18.
+//  Copyright © 2018 Razeware LLC. All rights reserved.
+//
 
 import UIKit
 import Alamofire
@@ -147,7 +133,7 @@ extension ViewController {
           upload.responseJSON { response in
             // 1.
             guard response.result.isSuccess else {
-              print("Error while uploading file: \(response.result.error)")
+              print("Error while uploading file: \(String(describing: response.result.error))")
               completion([String](), [PhotoColor]())
               return
             }
@@ -182,7 +168,7 @@ extension ViewController {
       .responseJSON { response in
         // 1.
         guard response.result.isSuccess else {
-          print("Error while fetching tags: \(response.result.error)")
+          print("Error while fetching tags: \(String(describing: response.result.error))")
           completion([String]())
           return
         }
@@ -211,7 +197,7 @@ extension ViewController {
       .responseJSON { response in
         // 2.
         guard response.result.isSuccess else {
-          print("Error while fetching colors: \(response.result.error)")
+          print("Error while fetching colors: \(String(describing: response.result.error))")
           completion([PhotoColor]())
           return
         }
